@@ -94,33 +94,12 @@
     <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         <!-- 1. Hero Section -->
-        <section id="hero" class=" flex items-center pt-24 pb-16">
+       <section id="hero" class=" flex items-center pt-24 pb-16">
             <div class="grid md:grid-cols-2 gap-12 items-center">
-                <div>
-                    <span class="text-lg font-medium text-amber-400 uppercase tracking-widest mb-3 block">PhD Candidate in CSE</span>
-                    
-                    <!-- ANIMATED HEADLINE -->
-                    <h1 class="text-6xl sm:text-7xl lg:text-7xl font-black leading-tight mb-6">
-                        <span class="text-blue-600">I am a CSE</span> 
-                        <br> 
-                        <span 
-                            id="typewriter-text" 
-                            class="text-amber-400 typewriter-cursor inline-block min-w-[500px] sm:min-w-[500px] lg:min-w-[500px]"
-                        ></span>
-                    </h1>
-
-                    
-                    <!-- <p class="text-xl text-slate-300 mb-8 max-w-lg">
-                        I am a Computer Science Engineer and Doctoral Researcher specializing in Machine Learning applied to [Your Specific Research Area, e.g., Distributed Systems].
-                    </p> -->
-                    <a href="#contact" class="inline-flex items-center px-8 py-3 text-lg font-bold rounded-full bg-blue-600 text-white hover:bg-blue-700 transition duration-300 shadow-lg shadow-blue-600/30 hover-lift">
-                        Get in Touch
-                        <span data-lucide="arrow-right" class="w-5 h-5 ml-2"></span>
-                    </a>
-                </div>
-                <div class="hidden md:flex justify-right">
-                    <!-- Fancier visual element or avatar placeholder -->
-                    <div class="w-72 h-72 lg:w-96 lg:h-96 bg-blue-600/20 rounded-full border-4 border-amber-400 shadow-2xl shadow-blue-600/50 flex items-center justify-center overflow-hidden">
+                
+                <!-- IMAGE CONTAINER (Visible on ALL screens, but repositioned on mobile) -->
+                <div class="flex justify-center md:justify-end order-first md:order-none">
+                    <div class="w-60 h-60 sm:w-72 sm:h-72 lg:w-96 lg:h-96 bg-blue-600/20 rounded-full border-4 border-amber-400 shadow-2xl shadow-blue-600/50 flex items-center justify-center overflow-hidden mb-6 md:mb-0">
                         <!-- REPLACE the placeholder URL with your image URL -->
                         <img 
                             src="profile.jpeg" 
@@ -128,6 +107,38 @@
                             class="w-full h-full object-cover"
                             onerror="this.onerror=null; this.src='https://placehold.co/800x800/1E293B/FBBF24?text=Profile+Image';"
                         >
+                    </div>
+                </div>
+
+                <!-- TEXT CONTAINER -->
+                <div>
+                    <span class="text-lg font-medium text-amber-400 uppercase tracking-widest mb-3 block">PhD Candidate at UNSW</span>
+                    
+                    <!-- ANIMATED HEADLINE -->
+                    <h1 class="text-6xl sm:text-7xl lg:text-7xl font-black leading-tight mb-6">
+                        <span class="text-blue-600">I am a CSE</span> 
+                        <br> 
+                        <span 
+                            id="typewriter-text" 
+                            class="text-amber-400 typewriter-cursor inline-block min-w-[280px] sm:min-w-[400px] lg:min-w-[500px]"
+                        ></span>
+                    </h1>
+
+                    <!-- BUTTONS: Get in Touch (Primary) and Download CV (Secondary) -->
+                    <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+                        <a href="#contact" class="inline-flex items-center justify-center px-8 py-3 text-lg font-bold rounded-full bg-blue-600 text-white hover:bg-blue-700 transition duration-300 shadow-lg shadow-blue-600/30 hover-lift">
+                            Get in Touch
+                            <span data-lucide="arrow-right" class="w-5 h-5 ml-2"></span>
+                        </a>
+                        <!-- DOWNLOAD RESUME BUTTON -->
+                        <a 
+                            href="Meghali_Nandi_UNSW.pdf" 
+                            download 
+                            class="inline-flex items-center justify-center px-8 py-3 text-lg font-bold rounded-full bg-slate-700 text-slate-200 hover:bg-slate-600 transition duration-300 shadow-lg hover-lift"
+                        >
+                            Download CV
+                            <span data-lucide="download" class="w-5 h-5 ml-2"></span>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -228,7 +239,7 @@
                         <h3 class="text-2xl font-bold text-blue-400">Research Assistant (AI and Security)</h3>
                         <span class="text-amber-400 font-semibold text-lg">Dec 2024 - Present</span>
                     </div>
-                    <p class="text-xl text-white mb-2">UNSW | Sydney, Australia</p>
+                    <p class="text-xl text-white mb-2">UNSW CTI Lab | Sydney, Australia</p>
                     <ul class="list-disc list-inside space-y-1 text-slate-400 ml-4">
                         <li>Adapted the BirdNET model for robust, in-situ bird sound identification, followed by deployment on edge devices to enable continuous acoustic monitoring in field environments.</li>
                         <li>Implemented agentic RAG pipelines for compliance analysis, paired with system-level data validation techniques for IoT healthcare devices to ensure reliability and regulatory alignment.</li>
@@ -237,7 +248,7 @@
 
                 <div class="bg-card-bg p-6 rounded-xl shadow-xl hover-lift">
                     <div class="flex justify-between items-start mb-2">
-                        <h3 class="text-2xl font-bold text-blue-400">Data Engineer III (Big Data)</h3>
+                        <h3 class="text-2xl font-bold text-white">Data Engineer III (Big Data)</h3>
                         <span class="text-amber-400 font-semibold text-lg">June 2022 - Sept 2024</span>
                     </div>
                     <p class="text-xl text-white mb-2">Walmart Global Tech India | Chennai, India</p>
