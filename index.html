@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meghali Nandi | UNSW</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Load Lucide Icons for aesthetic vectors -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #2563EB; /* Tailwind blue-600 */
+            --secondary-color: #FBBF24; /* Tailwind amber-400 */
+            --background-color: #0F172A; /* Tailwind slate-900 */
+            --text-color: #F1F5F9; /* Tailwind slate-100 */
+            --card-bg: #1E293B; /* Tailwind slate-800 */
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            scroll-behavior: smooth;
+        }
+        .fancy-border {
+            border-left: 4px solid var(--secondary-color);
+            padding-left: 1.5rem;
+        }
+        .hover-lift {
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .hover-lift:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(37, 99, 235, 0.3), 0 4px 6px -2px rgba(37, 99, 235, 0.1);
+        }
+        .section-title {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 2rem;
+            font-weight: 800;
+        }
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 50%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--secondary-color) 0%, rgba(251, 191, 36, 0) 100%);
+            margin-top: 4px;
+            border-radius: 9999px;
+        }
+        .link-icon {
+            transition: color 0.3s, transform 0.3s;
+        }
+        .link-icon:hover {
+            color: var(--secondary-color);
+            transform: scale(1.1);
+        }
+        /* CSS for the typewriter cursor animation */
+        @keyframes blink {
+            50% { border-color: transparent; }
+        }
+        .typewriter-cursor {
+            border-right: 3px solid var(--secondary-color);
+            animation: blink 0.7s step-end infinite;
+            padding-right: 2px; /* Small gap for the cursor */
+        }
+    </style>
+</head>
+<body class="selection:bg-yellow-400 selection:text-slate-900">
+
+    <!-- Header & Navigation -->
+    <header class="sticky top-0 z-50 bg-slate-900/95 backdrop-blur-sm shadow-xl">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+            <a href="#hero" class="text-2xl font-extrabold text-white tracking-widest hover:text-amber-400 transition duration-300">
+                Meghali Nandi <span class="text-amber-400">.</span>
+            </a>
+            <div class="hidden md:flex space-x-6 font-semibold">
+                <a href="#about" class="hover:text-amber-400 transition duration-300">About</a>
+                <a href="#education" class="hover:text-amber-400 transition duration-300">Education</a>
+                <a href="#experience" class="hover:text-amber-400 transition duration-300">Work</a>
+                <a href="#publications" class="hover:text-amber-400 transition duration-300">Publications</a>
+                <a href="#contact" class="hover:text-amber-400 transition duration-300">Contact</a>
+            </div>
+            <div class="md:hidden">
+                <!-- Mobile Menu Button (omitting full mobile menu implementation for brevity) -->
+                <button class="text-white hover:text-amber-400 focus:outline-none">
+                    <span data-lucide="menu" class="w-6 h-6"></span>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <!-- 1. Hero Section -->
+        <section id="hero" class=" flex items-center pt-24 pb-16">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <span class="text-lg font-medium text-amber-400 uppercase tracking-widest mb-3 block">PhD Candidate in CSE</span>
+                    
+                    <!-- ANIMATED HEADLINE -->
+                    <h1 class="text-6xl sm:text-7xl lg:text-7xl font-black leading-tight mb-6">
+                        <span class="text-blue-600">I am a CSE</span> 
+                        <br> 
+                        <span 
+                            id="typewriter-text" 
+                            class="text-amber-400 typewriter-cursor inline-block min-w-[500px] sm:min-w-[500px] lg:min-w-[500px]"
+                        ></span>
+                    </h1>
+
+                    
+                    <!-- <p class="text-xl text-slate-300 mb-8 max-w-lg">
+                        I am a Computer Science Engineer and Doctoral Researcher specializing in Machine Learning applied to [Your Specific Research Area, e.g., Distributed Systems].
+                    </p> -->
+                    <a href="#contact" class="inline-flex items-center px-8 py-3 text-lg font-bold rounded-full bg-blue-600 text-white hover:bg-blue-700 transition duration-300 shadow-lg shadow-blue-600/30 hover-lift">
+                        Get in Touch
+                        <span data-lucide="arrow-right" class="w-5 h-5 ml-2"></span>
+                    </a>
+                </div>
+                <div class="hidden md:flex justify-right">
+                    <!-- Fancier visual element or avatar placeholder -->
+                    <div class="w-72 h-72 lg:w-96 lg:h-96 bg-blue-600/20 rounded-full border-4 border-amber-400 shadow-2xl shadow-blue-600/50 flex items-center justify-center overflow-hidden">
+                        <!-- REPLACE the placeholder URL with your image URL -->
+                        <img 
+                            src="profile.jpeg" 
+                            alt="Meghali Nandi Professional Portrait"
+                            class="w-full h-full object-cover"
+                            onerror="this.onerror=null; this.src='https://placehold.co/800x800/1E293B/FBBF24?text=Profile+Image';"
+                        >
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. About Me Section -->
+        <section id="about" class="py-20 border-t border-slate-800">
+            <h2 class="text-4xl section-title">About Me</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="md:col-span-2 text-lg text-slate-300 space-y-4">
+                    <div class="md:col-span-2 text-lg text-slate-300 space-y-4">
+                    <p>I am a PhD Candidate in Computer Science Engineering at the University of New South Wales (UNSW) and an associated researcher with <strong>CSIRO's Data61</strong>. My current research is focused on <strong>Privacy-Enhancing Technologies (PETs)</strong>, specifically investigating the privacy attacks and defenses on AI systems to ensure data security and privacy in distributed AI systems.</p>
+                    
+                    <p>My academic foundation includes an M.Tech from IIT Guwahati, where my thesis explored <strong>privacy preserving search in federated learning</strong>. This foundational work in secure distributed systems prepared me for the complex privacy challenges in modern AI.</p>
+                    <p>Before beginning my doctoral journey, I spent <strong>5 years as a Software Engineer</strong> in industry, specializing in scalable data platforms. My roles at <strong>Walmart Global Tech</strong>, <strong>Alation</strong>, and <strong>Zaloni</strong> gave me extensive practical experience in designing and implementing high-throughput data pipelines. This engineering background ensures my research remains grounded in practical, deployable solutions.</p>
+                    
+                    <p>I am strongly committed to open science and ensuring the reproducibility of research. I welcome opportunities to collaborate on innovative projects and share my expertise with both the academic community and industry partners.</p>
+                </div>
+                </div>
+                <div class="bg-slate-800 p-6 rounded-xl shadow-lg">
+                    <h3 class="text-2xl font-bold mb-4 text-blue-400">Core Expertise</h3>
+                    <ul class="space-y-2 text-slate-300">
+                        <li class="flex items-center"><span data-lucide="check-circle" class="w-5 h-5 text-amber-400 mr-3"></span>Privacy & AI</li>
+                        <li class="flex items-center"><span data-lucide="check-circle" class="w-5 h-5 text-amber-400 mr-3"></span>Federated Learning</li>
+                        <li class="flex items-center"><span data-lucide="check-circle" class="w-5 h-5 text-amber-400 mr-3"></span>Big Data (Spark, Hadoop, Big Query)</li>
+                        <li class="flex items-center"><span data-lucide="check-circle" class="w-5 h-5 text-amber-400 mr-3"></span>Software Engineering</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. Education Section -->
+        <section id="education" class="py-20 border-t border-slate-800">
+            <h2 class="text-4xl section-title">Academic Journey</h2>
+            <div class="space-y-8">
+
+                <!-- PhD -->
+                <div class="bg-card-bg p-6 rounded-xl shadow-xl hover-lift">
+                    <div class="flex justify-between items-start">
+                        <div class="fancy-border">
+                            <h3 class="text-2xl font-bold text-blue-400">Doctor of Philosophy (Ph.D.) in CSE</h3>
+                            <p class="text-slate-300 text-xl">University of New South Wales (UNSW), Sydney, Australia</p>
+                        </div>
+                        <span class="text-amber-400 font-semibold text-lg">2024 - Present</span>
+                    </div>
+                    <div class="mt-4 space-y-2 text-slate-400">
+                        <p><strong>Research Focus:<strong> Advancing scalable, privacy-preserving machine learning models for edge devices.</p>
+                        <p><strong>Supervisors:</strong> 
+                            <a href="https://www.unsw.edu.au/staff/arash-shaghaghi" class="text-blue-400 underline">Dr. Arash Shaghaghi</a>, 
+                            <a href="https://research.unsw.edu.au/people/professor-sanjay-jha" class="text-blue-400 underline">Prof. Sanjay Jha</a>
+                        </p>
+
+                    </div>
+                </div>
+
+                <!-- Masters -->
+                <div class="bg-card-bg p-6 rounded-xl shadow-xl hover-lift">
+                    <div class="flex justify-between items-start">
+                        <div class="fancy-border">
+                            <h3 class="text-2xl font-bold text-white">Master of Technology (M.Tech) in CSE</h3>
+                            <p class="text-slate-300 text-xl">Indian Institute of Technology, Guwahati, India</p>
+                        </div>
+                        <span class="text-amber-400 font-semibold text-lg">2021 - 2023</span>
+                    </div>
+                    <div class="mt-4 space-y-2 text-slate-400">
+                        <p><strong>Thesis Title:<strong> FedSearch: Privacy-Preserving Learned Indexes in Federated Learning</p>
+                        <p><strong>Supervisor:</strong> 
+                            <a href="https://www.iiitg.ac.in/computer-science-and-engineering/dr-ferdous-ahmed-barbhuiya-2" class="text-blue-400 underline">Prof. Fedous Ahmed Barbhuiya</a>, 
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Bachelors -->
+                <div class="bg-card-bg p-6 rounded-xl shadow-xl hover-lift">
+                    <div class="flex justify-between items-start">
+                        <div class="fancy-border">
+                            <h3 class="text-2xl font-bold text-white">Bachelor of Engineering (B.E) in CSE</h3>
+                            <p class="text-slate-300 text-xl">Assam Engineering College, India</p>
+                        </div>
+                        <span class="text-amber-400 font-semibold text-lg">2015 - 2019</span>
+                    </div>
+                    <div class="mt-4 space-y-2 text-slate-400">
+                        <p><strong>Project/Thesis:<strong> Handloom Design Generation Using Generative Networks</p>
+                        <p><strong>Supervisor:<strong> 
+                            <a href="https://scholar.google.com/citations?user=TyScz0QAAAAJ&hl=en" class="text-blue-400 underline">Dr. Gunajit Kalita</a> </p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- 4. Work Experience Section -->
+        <section id="experience" class="py-20 border-t border-slate-800">
+             <h2 class="text-4xl section-title">Professional Experience</h2>
+            <div class="space-y-8">
+                <div class="bg-card-bg p-6 rounded-xl shadow-xl hover-lift">
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="text-2xl font-bold text-blue-400">Research Assistant (AI and Security)</h3>
+                        <span class="text-amber-400 font-semibold text-lg">Dec 2024 - Present</span>
+                    </div>
+                    <p class="text-xl text-white mb-2">UNSW | Sydney, Australia</p>
+                    <ul class="list-disc list-inside space-y-1 text-slate-400 ml-4">
+                        <li>Adapted the BirdNET model for robust, in-situ bird sound identification, followed by deployment on edge devices to enable continuous acoustic monitoring in field environments.</li>
+                        <li>Implemented agentic RAG pipelines for compliance analysis, paired with system-level data validation techniques for IoT healthcare devices to ensure reliability and regulatory alignment.</li>
+                    </ul>
+                </div>
+
+                <div class="bg-card-bg p-6 rounded-xl shadow-xl hover-lift">
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="text-2xl font-bold text-blue-400">Data Engineer III (Big Data)</h3>
+                        <span class="text-amber-400 font-semibold text-lg">June 2022 - Sept 2024</span>
+                    </div>
+                    <p class="text-xl text-white mb-2">Walmart Global Tech India | Chennai, India</p>
+                    <ul class="list-disc list-inside space-y-1 text-slate-400 ml-4">
+                        <li>Implemented full-scale data pipelines, from ingestion to Google Big Query, using advanced transformations in <strong>Spark and Scala<strong>.</li>
+                        <li>Responsible for maintaining and optimizing high-volume, mission-critical data flows for global retail insights.</li>
+                    </ul>
+                </div>
+
+                <div class="bg-card-bg p-6 rounded-xl shadow-xl hover-lift">
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="text-2xl font-bold text-white">Software Engineer (Data Governance)</h3>
+                        <span class="text-amber-400 font-semibold text-lg">Jan 2022 - June 2022</span>
+                    </div>
+                    <p class="text-xl text-white mb-2">Alation | Bangalore, India</p>
+                    <ul class="list-disc list-inside space-y-1 text-slate-400 ml-4">
+                        <li>Implemented the SDK for the <strong>Snowflake connector<strong> with policy tags and protobuf features, including Kafka ingestion support.</li>
+                        <li>Developed the obfuscation feature for masking sensitive information in queries to enhance data privacy and security.</li>
+                    </ul>
+                </div>
+
+                <div class="bg-card-bg p-6 rounded-xl shadow-xl hover-lift">
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="text-2xl font-bold text-white">Software Development Engineer</h3>
+                        <span class="text-amber-400 font-semibold text-lg">Aug 2019 - Jan 2022</span>
+                    </div>
+                    <p class="text-xl text-white mb-2">Zaloni, Inc. | Guwahati, India</p>
+                    <ul class="list-disc list-inside space-y-1 text-slate-400 ml-4">
+                        <li>Implemented product features in <strong>Java and Spring Boot<strong> based on <strong>Hadoop and Spark<strong> jobs for data loading, filtering, and running ETL pipelines for large datasets.</li>
+                        <li>Worked on features enabling users to define and load custom data to run scalable ETL workflows.</li>
+                    </ul>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- 5. Publications Section -->
+        <section id="publications" class="py-20 border-t border-slate-800">
+            <h2 class="text-4xl section-title">Publications</h2>
+            <div class="space-y-6">
+
+                <!-- Extracted Publication 1 --><div class="bg-card-bg p-6 rounded-xl hover-lift">
+                    <a href="https://dl.acm.org/doi/pdf/10.1145/3708821.3736188" target="_blank" class="text-2xl font-bold text-blue-400 hover:text-amber-400 transition duration-300 block">
+                        Nosy Layers, Noisy Fixes: Tackling DRAs in Federated Learning Systems using Explainable AI
+                    </a>
+                    <p class="text-slate-300 mt-1">
+                        <em>Proceedings of the 20th ACM Asia Conference on Computer and Communications Security</em> (2025)
+                    </p>
+                    <p class="text-sm text-slate-400 mt-2">
+                        <span data-lucide="users" class="w-4 h-4 inline-block mr-1"></span><strong> Meghali Nandi</strong>, Arash Shaghaghi, Nazatul Haque Sultan, Gustavo Batista, Raymond K Zhao, Sanjay Jha
+                    </p>
+                </div>
+
+                <!-- Extracted Publication 2 --><div class="bg-card-bg p-6 rounded-xl hover-lift">
+                    <a href="https://ieeexplore.ieee.org/abstract/document/9079271/" target="_blank" class="text-2xl font-bold text-blue-400 hover:text-amber-400 transition duration-300 block">
+                        A secured land registration framework on Blockchain
+                    </a>
+                    <p class="text-slate-300 mt-1">
+                        <em>Third ISEA conference on security and privacy (ISEA-ISAP)</em> (2020)
+                    </p>
+                    <p class="text-sm text-slate-400 mt-2">
+                        <span data-lucide="users" class="w-4 h-4 inline-block mr-1"></span><strong> Meghali Nandi</strong>, Rajat Kanti Bhattacharjee, Amrit Jha, Ferdous A Barbhuiya
+                    </p>
+                </div>
+
+                <!-- Extracted Publication 3 --><div class="bg-card-bg p-6 rounded-xl hover-lift">
+                     <a href="https://scholar.google.com/citations?view_op=view_citation&hl=en&user=Kgz38sEAAAAJ&citation_for_view=Kgz38sEAAAAJ:2MXRNCICdAIC" target="_blank" class="text-2xl font-bold text-blue-400 hover:text-amber-400 transition duration-300 block">
+                        Handloom design generation using generative networks
+                    </a>
+                    <p class="text-slate-300 mt-1">
+                        <em>IEEE International Conference on Image Processing (ICIP)</em> (2020)
+                    </p>
+                    <p class="text-sm text-slate-400 mt-2">
+                        <span data-lucide="users" class="w-4 h-4 inline-block mr-1"></span>Rajat Kanti Bhattacharjee, <strong> Meghali Nandi</strong>, Amrit Jha, Gunajit Kalita, Ferdous Ahmed Barbhuiya
+                    </p>
+                    </div>
+
+                <!-- Extracted Publication 4 --><div class="bg-card-bg p-6 rounded-xl hover-lift">
+
+                    <a href="https://scholar.google.com/citations?view_op=view_citation&hl=en&user=Kgz38sEAAAAJ&citation_for_view=Kgz38sEAAAAJ:hT_gKkR0e-EC" target="_blank" class="text-2xl font-bold text-blue-400 hover:text-amber-400 transition duration-300 block">
+                        A framework for maintaining citizenship record on blockchain
+                    </a>
+                    <p class="text-slate-300 mt-1">
+                        <em>Proceedings of the 2019 ACM international symposium on blockchain and secure critical infrastructure</em> (2019)
+                    </p>
+                    <p class="text-sm text-slate-400 mt-2">
+                        <span data-lucide="users" class="w-4 h-4 inline-block mr-1"></span>Amrit Jha, Rajat Kanti Bhattacharjee, <strong> Meghali Nandi</strong>, Ferdous Ahmed Barbhuiya
+                    </p>
+                </div>
+                
+                   
+
+            </div>
+        </section>
+
+        <!-- 6. Contact & Links Section -->
+        <section id="contact" class="py-20 border-t border-slate-800">
+            <h2 class="text-4xl section-title">Connect</h2>
+            <div class="max-w-3xl text-center mx-auto">
+                <p class="text-xl text-slate-300 mb-10">
+                    I am always open to discussing research collaborations, innovative projects, or just talking about the future of computing. Let's connect!
+                </p>
+                <div class="flex justify-center space-x-10">
+                    <!-- LinkedIn --><a href="https://www.linkedin.com/in/meghali-nandi/" target="_blank" aria-label="LinkedIn" class="link-icon text-white">
+                        <span data-lucide="linkedin" class="w-10 h-10"></span>
+                    </a>
+                    <!-- GitHub --><a href="https://www.github.com/meghali-nandi/" target="_blank" aria-label="GitHub" class="link-icon text-white">
+                        <span data-lucide="github" class="w-10 h-10"></span>
+                    </a>
+                    <a href="https://scholar.google.com/citations?user=Kgz38sEAAAAJ&hl=en" target="_blank" aria-label="Google Scholar" class="link-icon text-white">
+                        <span data-lucide="graduation-cap" class="w-10 h-10"></span>
+                    </a>
+                    <!-- ResearchGate/Other Academic Link --><a href="https://orcid.org/orcid-search/search?searchQuery=meghali%20nandi" target="_blank" aria-label="ResearchGate/Orcid" class="link-icon text-white">
+                        <span data-lucide="book-open" class="w-10 h-10"></span>
+                    </a>
+                    <!-- Email --><a href="mailto:m.nandi@unsw.edu.au" aria-label="Email" class="link-icon text-white">
+                        <span data-lucide="mail" class="w-10 h-10"></span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900/50 mt-16 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 text-center text-slate-400">
+            <p>&copy; 2025 Meghali Nandi. Built with Passion & Tailwind CSS.</p>
+        </div>
+    </footer>
+
+    <!-- Script to automatically replace Lucide icons and run typewriter effect -->
+    <script>
+        // Typewriter Script for animated headline
+        const words = ["Researcher.", "Engineer.", "Innovator.", "Coder."];
+        let wordIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+        const typingSpeed = 150; // ms
+        const deletingSpeed = 75; // ms
+        const delayBeforeNextWord = 1500; // ms
+
+        function typeWriter() {
+            const currentWord = words[wordIndex];
+            const targetElement = document.getElementById('typewriter-text');
+            
+            if (!targetElement) return;
+
+            if (isDeleting) {
+                // Deleting phase
+                targetElement.textContent = currentWord.substring(0, charIndex - 1);
+                charIndex--;
+            } else {
+                // Typing phase
+                targetElement.textContent = currentWord.substring(0, charIndex + 1);
+                charIndex++;
+            }
+
+            if (!isDeleting && charIndex === currentWord.length) {
+                // Finished typing the word
+                isDeleting = true;
+                setTimeout(typeWriter, delayBeforeNextWord);
+            } else if (isDeleting && charIndex === 0) {
+                // Finished deleting the word
+                isDeleting = false;
+                wordIndex = (wordIndex + 1) % words.length;
+                setTimeout(typeWriter, typingSpeed);
+            } else {
+                // Continue typing or deleting
+                const speed = isDeleting ? deletingSpeed : typingSpeed;
+                setTimeout(typeWriter, speed);
+            }
+        }
+
+        // Start the effect and icons when the page loads
+        window.onload = function() {
+            typeWriter();
+            lucide.createIcons();
+        };
+    </script>
+</body>
+</html>
