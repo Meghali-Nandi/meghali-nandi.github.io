@@ -84,22 +84,39 @@
                 <a href="#contact" class="hover:text-amber-400 transition duration-300">Contact</a>
             </div>
             <div class="md:hidden">
-                <!-- Mobile Menu Button (omitting full mobile menu implementation for brevity) -->
-                <button class="text-white hover:text-amber-400 focus:outline-none">
-                    <span data-lucide="menu" class="w-6 h-6"></span>
-                </button>
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-btn" class="text-white hover:text-amber-400 focus:outline-none inline-flex items-center" aria-expanded="false" aria-controls="mobile-menu" aria-label="Toggle menu">
+                <!-- Hamburger icon (inline SVG) -->
+                <svg id="menu-icon" xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+
+                <!-- Close (X) icon (inline SVG) -->
+                <svg id="close-icon" xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
             </div>
+
         </nav>
+        <div id="mobile-menu" class="md:hidden hidden bg-slate-900 px-6 py-4 space-y-4">
+            <a href="#about" class="block text-white hover:text-amber-400 mobile-menu-item">About</a>
+            <a href="#education" class="block text-white hover:text-amber-400 mobile-menu-item">Education</a>
+            <a href="#experience" class="block text-white hover:text-amber-400 mobile-menu-item">Work</a>
+            <a href="#publications" class="block text-white hover:text-amber-400 mobile-menu-item">Publications</a>
+            <a href="#contact" class="block text-white hover:text-amber-400 mobile-menu-item">Contact</a>
+        </div>
+
     </header>
 
     <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         <!-- 1. Hero Section -->
        <section id="hero" class=" flex items-center pt-24 pb-16">
-            <div class="grid md:grid-cols-2 gap-12 items-center">
+            <div class="grid md:grid-cols-2 gap-12 items-center justify-items-center md:justify-items-start">
                 
                 <!-- IMAGE CONTAINER (Visible on ALL screens, but repositioned on mobile) -->
-                <div class="w-full flex justify-center md:justify-end order-first md:order-none">
+                <div class="flex justify-center md:justify-end order-first md:order-none">
                     <div class="w-60 h-60 sm:w-72 sm:h-72 lg:w-96 lg:h-96 bg-blue-600/20 rounded-full border-4 border-amber-400 shadow-2xl shadow-blue-600/50 flex items-center justify-center overflow-hidden mb-6 md:mb-0">
                         <!-- REPLACE the placeholder URL with your image URL -->
                         <img 
@@ -112,7 +129,8 @@
                 </div>
 
                 <!-- TEXT CONTAINER -->
-                <div>
+                <div class="w-full text-center md:text-left flex flex-col items-center md:items-start">
+
                     <span class="text-lg font-medium text-amber-400 uppercase tracking-widest mb-3 block">PhD Candidate at UNSW</span>
                     
                     <!-- ANIMATED HEADLINE -->
@@ -427,6 +445,60 @@
             typeWriter();
             lucide.createIcons();
         };
+
+        const mobileMenuBtn = document.getElementById("mobile-menu-btn");
+        const menuIcon = document.getElementById("menu-icon");
+        const closeIcon = document.getElementById("close-icon");
+        const mobileMenu = document.getElementById("mobile-menu");
+        const menuItems = document.querySelectorAll(".mobile-menu-item");
+
+        document.addEventListener("DOMContentLoaded", () => {
+    const mobileMenuBtn = document.getElementById("mobile-menu-btn");
+    const menuIcon = document.getElementById("menu-icon");
+    const closeIcon = document.getElementById("close-icon");
+    const mobileMenu = document.getElementById("mobile-menu");
+    const menuItems = document.querySelectorAll(".mobile-menu-item");
+
+    if (!mobileMenuBtn || !mobileMenu) return;
+
+    function openMenu() {
+        mobileMenu.classList.remove("hidden");
+        menuIcon.classList.add("hidden");
+        closeIcon.classList.remove("hidden");
+        mobileMenuBtn.setAttribute("aria-expanded", "true");
+    }
+
+    function closeMenu() {
+        mobileMenu.classList.add("hidden");
+        closeIcon.classList.add("hidden");
+        menuIcon.classList.remove("hidden");
+        mobileMenuBtn.setAttribute("aria-expanded", "false");
+    }
+
+    mobileMenuBtn.addEventListener("click", () => {
+        if (mobileMenu.classList.contains("hidden")) {
+        openMenu();
+        } else {
+        closeMenu();
+        }
+    });
+
+    // Close when clicking any link in the mobile menu
+    menuItems.forEach(item => {
+        item.addEventListener("click", () => {
+        closeMenu();
+        });
+    });
+
+    // Optional: close menu if user taps outside it (nice-to-have)
+    document.addEventListener("click", (e) => {
+        const target = e.target;
+        if (!mobileMenu.contains(target) && !mobileMenuBtn.contains(target) && !mobileMenu.classList.contains("hidden")) {
+        closeMenu();
+        }
+    });
+    });
+
     </script>
 </body>
 </html>
